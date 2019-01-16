@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+      New Perspectives on HTML5 and CSS3, 7th Edition
+      Tutorial 7
+      Case Problem 1
+
+      CGIP Registration Form
+      Author: Alexander Orendain
+      Date: 1.15.18
+
+      Filename:   index.html
+
+   -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CGIP Registration Form</title>
+    <link href="cg_base.css" rel="stylesheet" />
+    <link href="cg_styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="cg_forms.css" />
+    <link rel="stylesheet" href="cg_validate.css" />
+    <script src="cg_script.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="cg_logo.png" alt="Computer Graphics and Image Processing" id="logoimg" />
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">home page</a></li>
+            <li><a href="#">keynote address</a></li>
+            <li><a href="#">speakers</a></li>
+            <li class="newgroup"><a href="#">general session</a></li>
+            <li><a href="#">abstracts</a></li>
+            <li><a href="#">programs</a></li>
+            <li><a href="#">workshops</a></li>
+            <li class="newgroup"><a href="#">committees</a></li>
+            <li><a href="#">executive session</a></li>
+            <li><a href="#">advisory council</a></li>
+            <li class="newgroup"><a href="#">travel info</a></li>
+            <li><a href="#">accommodations</a></li>
+            <li><a href="#">banquet</a></li>
+            <li><a href="#">family attractions</a></li>
+            <li class="newgroup"><a href="#">registration</a></li>
+            <li class="newgroup"><a href="#">ACGIP home page</a></li>
+            <li><a href="#">tour Sante Fe</a></li>
+            <li><a href="#">links</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h1>Conference Registration Form</h1>
+        <p>Required Item (*)</p>
+        <!-- For the first part of the registration form, I created a list of different input fields and labels for those input fields for users to insert information, such as a field specific for the user's address and a label that goes along with that field would be titled "Address". Some of the fields are also "required"; that basically means what it's called, that field needs information that is imperative that the user inputs (such as first name, last name, address, etc.). Other fields also have this thing that is called a "regex", or "regular expression"; basically what it does is limit the user to a certain digit limit and helps ensure that the user doesn't send invalid data to the server.-->
+        <form action="http://www.example.com/cg/register" method="POST">
+            <label for="title">Title</label>
+            <input id="titleBox" name="title" type="text" list="titleList" />
+
+            <label for="firstName">First Name*</label>
+            <input id="fnBox" name="firstName" type="text" required />
+
+            <label for="lastName">Last Name*</label>
+            <input id="lnBox" name="lastName" type="text" required />
+
+            <label for="address">Address*</label>
+            <textarea id="addBox" name="address" type="text" required /></textarea>
+
+            <label for="group">Company or University</label>
+            <input id="groupBox" name="group" type="text" />
+
+            <label for="email">Email*</label>
+            <input id="mailBox" name="email" type="email" required />
+
+            <label for="phoneNumber">Phone Number*</label>
+            <input id="phoneBox" name="phoneNumber" type="tel" placeholder="(nnn) nnn-nnnn" required pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" />
+
+            <label for="acgipID">ACGIP Membership Number</label>
+            <input id="idBox" name="acgipID" type="text" placeholder="acgip-nnnnnn" pattern="^acgip\-\d{6}$" />
+
+            <!-- In the chunk of code underneath, I have created a "datalist" that is linked to the "title" input field. This datalist's purpose is to offer the user options/suggestions to have for their title; such as Mr. for a male, Dr. for someone with a doctoral degree, etc. -->
+            <datalist id="titleList">
+                <option value="Mr."></option>
+                <option value="Mrs."></option>
+                <option value="Ms."></option>
+                <option value="Prof."></option>
+                <option value="Dr."></option>
+                <option value="Assist. Prof."></option>
+                <option value="Assoc. Prof."></option>
+            </datalist>
+
+            <!-- For the last "block" of code, I have created a "selection list"; this list isn't tied to an input field like the datalist but instead works as a sort of field by itself. It is instead tied to the "Registration List" label. The selection list works similarly to the datalist but with one major difference; the selection list "forces" the user to select one of its options, where as the datalist allows the user to input their own option if they don't want to pick one of the "suggested" options. -->
+            <label for="regList">Registration List</label>
+            <select name="registerType" id="regList">
+                <option value="member">ACGIP Member ($695)</option>
+                <option value="nonmember">Non-Member ($795)</option>
+                <option value="student">Student ($310)</option>
+                <option value="poster">Poster ($95)</option>
+                <option value="guest">Guest ($35)</option>
+            </select>
+
+            <!-- Finally, the last line of code just creates a "submit" button that will let the user submit their information/data to the server. e-->
+            <p>
+                <input value="continue" type="submit">
+            </p>
+
+        </form>
+
+    </section>
+
+    <aside>
+        <dl>
+            <dt>ACGIP Member ($695)</dt>
+            <dd>Eligible to attend all sessions and banquet</dd>
+            <dt>Non-Member ($795)</dt>
+            <dd>Eligible to attend all sessions and banquet</dd>
+            <dt>Student ($310)</dt>
+            <dd>Eligible to attend all sessions. <a href="#">Proof</a> of
+                student status required</dd>
+            <dt>Poster ($95)</dt>
+            <dd>Eligible to attend display hall and vendor stations</dd>
+            <dt>Guest ($35)</dt>
+            <dd>Eligible to attend banquet only</dd>
+        </dl>
+    </aside>
+
+    <footer>
+        Association of Computer Graphics and Image Processing
+    </footer>
+</body>
+
+</html>
