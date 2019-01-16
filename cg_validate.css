@@ -12,6 +12,7 @@
 */
 
 
+/* For the first block of code, I have created styles that will give the input fields, selection lists, and text area boxes an orange-esque color when clicked on. */
 /* Validation Styles */
 input:focus,
 select:focus,
@@ -19,6 +20,7 @@ textarea:focus {
     background-color: rgb(245, 245, 140);
 }
 
+/* Underneath, I have made it so that when the input fields for the "First Name, Last Name, Address, Email, Phone Number, and ACGIP ID" detect valid data, the field will take a green hue and will display a checkmark. */
 input#fnBox:focus:valid,
 input#lnBox:focus:valid,
 input#addBox:focus:valid,
@@ -28,6 +30,7 @@ input#idBox:focus:valid {
     background: rgb(220, 255, 220) url(cg_valid.png) bottom right/contain no-repeat;
 }
 
+/* Underneath, I have made it so that when the input fields for the "First Name, Last Name, Address, Email, Phone Number, and ACGIP ID" detect invalid data, the field will take a red hue and will display a red X. */
 input#fnBox:focus:invalid,
 input#lnBox:focus:invalid,
 input#addBox:focus:invalid,
